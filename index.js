@@ -30,7 +30,8 @@ client.connect(err => {
 
 //  make a API
     app.get('/products', (req, res)=>{
-        collection.find({})
+        const search = req.query.search;
+        collection.find({name: {$regex: search}})
         .toArray((err, documents)=>{
             res.send(documents)
         })
