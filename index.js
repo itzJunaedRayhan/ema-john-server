@@ -15,7 +15,6 @@ app.get('/', (req, res) =>{
     res.send('hello from db, its working')
 })
 
-
 client.connect(err => {
   const collection = client.db("simple-amazon").collection("products");
   const ordersCollection = client.db("simple-amazon").collection("orders")
@@ -52,10 +51,6 @@ client.connect(err => {
             res.send(documents)
         })
     })
-
-
-
-
 
     app.post('/addOrder', (req, res) =>{
         const order = req.body;  
